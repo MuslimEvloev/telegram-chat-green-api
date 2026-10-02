@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="300" viewBox="0 0 300 300" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <defs>
+    <path id="star" d="M0-11 2.7-3.7 10.5-3.4 4.4 1.4 6.5 8.9 0 4.6-6.5 8.9-4.4 1.4-10.5-3.4-2.7-3.7Z"/>
+    <path id="sparkle" d="M0-10Q1.5-1.5 10 0 1.5 1.5 0 10-1.5 1.5-10 0-1.5-1.5 0-10Z"/>
+    <path id="bubble" d="M-9-10H9A5 5 0 0 1 14-5V3A5 5 0 0 1 9 8H-2L-9 14V8A5 5 0 0 1-14 3V-5A5 5 0 0 1-9-10Z"/>
+    <path id="heart" d="M0 9C-13 0-9-10 0-4 9-10 13 0 0 9Z"/>
+  </defs>
+  <use xlink:href="#star" transform="translate(38 36) rotate(-12)"/>
+  <g transform="translate(150 50)">
+    <circle r="10"/>
+    <ellipse rx="19" ry="5.5" transform="rotate(-20)"/>
+  </g>
+  <g transform="translate(258 42) rotate(6)">
+    <use xlink:href="#bubble"/>
+    <circle cx="-6" cy="-1" r=".6"/>
+    <circle cy="-1" r=".6"/>
+    <circle cx="6" cy="-1" r=".6"/>
+  </g>
+  <use xlink:href="#heart" transform="translate(90 118) rotate(-12)"/>
+  <use xlink:href="#sparkle" transform="translate(205 112)"/>
+  <path d="M5-10A11 11 0 1 0 5 10 8 8 0 1 1 5-10Z" transform="translate(266 152) rotate(25)"/>
+  <g transform="translate(38 198) rotate(-12)">
+    <path d="M-11 0 11-9 5 10 0 3Z"/>
+    <path d="M0 3 11-9"/>
+  </g>
+  <circle cx="138" cy="182" r="6"/>
+  <use xlink:href="#star" transform="translate(196 226) rotate(18) scale(.75)"/>
+  <use xlink:href="#bubble" transform="translate(106 262) rotate(-8) scale(.9)"/>
+  <use xlink:href="#sparkle" transform="translate(262 250) scale(.6)"/>
+  <g stroke-width="3">
+    <circle cx="96" cy="52" r=".5"/>
+    <circle cx="226" cy="80" r=".5"/>
+    <circle cx="52" cy="132" r=".5"/>
+    <circle cx="170" cy="150" r=".5"/>
+    <circle cx="236" cy="196" r=".5"/>
+    <circle cx="28" cy="270" r=".5"/>
+    <circle cx="160" cy="284" r=".5"/>
+  </g>
+</svg>

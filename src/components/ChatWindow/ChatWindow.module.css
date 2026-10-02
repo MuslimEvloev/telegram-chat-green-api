@@ -1,0 +1,216 @@
+.chat {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.header {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 12px;
+  height: 56px;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--border);
+  background: #fff;
+}
+
+.back {
+  display: none;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin-right: -4px;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: var(--text-secondary);
+}
+
+.title {
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 4px;
+  min-height: 100%;
+  max-width: 728px;
+  margin: 0 auto;
+  padding: 16px 16px 8px;
+}
+
+.message {
+  position: relative;
+  max-width: min(480px, 85%);
+  padding: 6px 10px 7px;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+}
+
+.in {
+  align-self: flex-start;
+  background: var(--bubble-in);
+}
+
+.out {
+  align-self: flex-end;
+  background: var(--bubble-out);
+}
+
+.tail + .message {
+  margin-top: 6px;
+}
+
+.tail.in {
+  border-bottom-left-radius: 0;
+}
+
+.tail.out {
+  border-bottom-right-radius: 0;
+}
+
+.tail::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 9px;
+  height: 17px;
+  background: inherit;
+}
+
+.tail.in::before {
+  left: -8px;
+  clip-path: path('M9 0C9 9 5 14 0 17H9Z');
+}
+
+.tail.out::before {
+  right: -8px;
+  clip-path: path('M0 0C0 9 4 14 9 17H0Z');
+}
+
+.text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* Место под время в конце последней строки */
+.text::after {
+  content: '';
+  display: inline-block;
+  width: 40px;
+}
+
+.time {
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.in .time {
+  color: var(--time-in);
+}
+
+.out .time {
+  color: var(--time-out);
+}
+
+.composer {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 728px;
+  margin: 0 auto;
+  padding: 8px 16px 20px;
+}
+
+.composerRow {
+  display: flex;
+  gap: 8px;
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  height: 54px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 12px;
+  outline: none;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+.send {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--primary);
+  box-shadow: var(--shadow);
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+.send:hover:not(:disabled) {
+  background: var(--primary);
+  color: #fff;
+}
+
+.send:disabled {
+  color: #c4c9cc;
+}
+
+.error {
+  width: fit-content;
+  margin: 0 auto 8px;
+  padding: 4px 12px;
+  border-radius: 16px;
+  background: #fff;
+  color: var(--danger);
+  font-size: 14px;
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 767px) {
+  .back {
+    display: grid;
+  }
+
+  .header {
+    padding: 0 12px 0 4px;
+  }
+
+  .column {
+    padding: 12px 10px 8px;
+  }
+
+  .composer {
+    padding: 8px 8px 12px;
+  }
+}

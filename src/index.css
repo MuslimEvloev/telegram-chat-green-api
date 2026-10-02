@@ -1,0 +1,81 @@
+/* Цвета светлой темы Telegram Web */
+:root {
+  --primary: #3390ec;
+  --primary-hover: #2a7fd4;
+  --text: #000;
+  --text-secondary: #707579;
+  --border: #dadce0;
+  --hover: #f4f4f5;
+  --danger: #e53935;
+  --bubble-in: #fff;
+  --bubble-out: #eeffde;
+  --time-in: rgb(112 117 121 / 0.75);
+  --time-out: #4fae4e;
+  --shadow: 0 1px 2px rgb(16 35 47 / 0.15);
+
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial,
+    sans-serif;
+  font-size: 16px;
+  line-height: 1.3125;
+  color: var(--text);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+/* Фон переписки: градиент и узор, как у стандартных обоев Telegram */
+.wallpaper {
+  position: relative;
+  isolation: isolate;
+  background-color: #b5c98f;
+  background-image:
+    radial-gradient(circle at 8% 10%, #dbddbb 0, transparent 55%),
+    radial-gradient(circle at 92% 18%, #6ba587 0, transparent 60%),
+    radial-gradient(circle at 88% 92%, #d5d88d 0, transparent 55%),
+    radial-gradient(circle at 12% 88%, #88b884 0, transparent 60%);
+}
+
+.wallpaper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgb(25 60 20 / 0.16);
+  mask: url('./assets/pattern.svg') 0 0 / 300px repeat;
+  pointer-events: none;
+}
