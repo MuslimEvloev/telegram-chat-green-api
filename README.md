@@ -13,6 +13,7 @@ npm run dev
 ```
 Откройте http://localhost:5173.
 
+Vercel: https://telegram-chat-green-api.vercel.app/
 
 ## Подготовка инстанса GREEN-API
 
