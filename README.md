@@ -6,8 +6,8 @@
 ## Локальный запуск
 
 ```bash
-git clone <ссылка на репозиторий>
-cd green-api-telegram-chat
+git clone https://github.com/MuslimEvloev/telegram-chat-green-api.git
+cd telegram-chat-green-api
 npm install
 npm run dev
 ```
@@ -18,7 +18,8 @@ npm run dev
 
 1. Зарегистрируйтесь в [личном кабинете](https://console.green-api.com) и создайте инстанс Telegram (тариф «Разработчик» бесплатный).
 2. Авторизуйте инстанс: войдите в свой аккаунт Telegram по QR-коду или номеру телефона.
-3. Скопируйте `idInstance` и `apiTokenInstance`.
+3. Включите получение входящих: «Изменить» → «Получать уведомления о входящих сообщениях и файлах», поле webhookUrl оставьте пустым.
+4. Скопируйте `idInstance` и `apiTokenInstance`.
 
 
 ## Как пользоваться

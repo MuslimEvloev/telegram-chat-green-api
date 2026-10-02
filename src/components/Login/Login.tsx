@@ -22,9 +22,17 @@ export function Login({ onLogin }: LoginProps) {
     setError('')
     try {
       // Проверяем данные сразу, чтобы не пускать в чат с неверным токеном
-      const { stateInstance } = await createGreenApi(credentials).getStateInstance()
+      const api = createGreenApi(credentials)
+      const { stateInstance } = await api.getStateInstance()
       if (stateInstance !== 'authorized') {
         throw new Error('Инстанс не авторизован в Telegram. Авторизуйте его в личном кабинете GREEN-API')
+      }
+      // Без этих настроек ReceiveNotification не вернёт входящие сообщения
+      const { webhookUrl, incomingWebhook } = await api.getSettings()
+      if (webhookUrl || incomingWebhook !== 'yes') {
+        throw new Error(
+          'Входящие сообщения не будут приходить: в настройках инстанса очистите webhookUrl и включите «Получать уведомления о входящих сообщениях и файлах»',
+        )
       }
       onLogin(credentials)
     } catch (err) {

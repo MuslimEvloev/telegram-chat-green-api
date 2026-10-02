@@ -41,7 +41,10 @@ export function createGreenApi({ idInstance, apiTokenInstance }: Credentials) {
       response = await fetch(url, init)
     } catch (error) {
       if (init?.signal?.aborted) throw error
-      throw new Error('Нет соединения с GREEN-API')
+      // Сюда попадают и обрывы сети, и ответы сервера без CORS-заголовков (например, пока инстанс запускается)
+      throw new Error(
+        'GREEN-API не ответил. Проверьте интернет и что инстанс в личном кабинете в статусе «Авторизован»',
+      )
     }
     if (!response.ok) throw new Error(describeStatus(response.status))
     const text = await response.text()
@@ -58,6 +61,8 @@ export function createGreenApi({ idInstance, apiTokenInstance }: Credentials) {
 
   return {
     getStateInstance: () => request<{ stateInstance: string }>('getStateInstance'),
+
+    getSettings: () => request<{ webhookUrl: string; incomingWebhook: string }>('getSettings'),
 
     /** Узнать chatId пользователя Telegram по номеру телефона */
     checkAccount: (phoneNumber: number) =>
