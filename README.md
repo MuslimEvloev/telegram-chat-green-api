@@ -11,7 +11,7 @@ cd telegram-chat-green-api
 npm install
 npm run dev
 ```
-Откройте http://localhost:5173.
+
 
 Vercel: https://telegram-chat-green-api.vercel.app/
 
